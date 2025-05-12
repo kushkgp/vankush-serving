@@ -55,6 +55,9 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       background: white;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
     .story-card:hover {
@@ -114,6 +117,18 @@
     .story-card:hover .heart-icon {
       opacity: 1;
     }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 1em;
+      color: #ff6b6b;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .story-card:hover .read-more {
+      color: #ff8e8e;
+    }
   </style>
 </head>
 <body>
@@ -124,7 +139,7 @@
     </div>
     
     <div class="gallery">
-      <div class="story-card">
+      <a href="chapters/chapter1/index.html" class="story-card">
         <div class="heart-icon">❤️</div>
         <img src="images/gallery/Image1.jpg" alt="First Meeting">
         <div class="story-content">
@@ -133,10 +148,11 @@
           <div class="story-description">
             The first time our eyes met, little did we know this would be the start of our beautiful journey together.
           </div>
+          <div class="read-more">Read Our Story →</div>
         </div>
-      </div>
+      </a>
 
-      <div class="story-card">
+      <a href="chapters/chapter2/index.html" class="story-card">
         <div class="heart-icon">❤️</div>
         <img src="images/gallery/Image2.jpg" alt="Second Meeting">
         <div class="story-content">
@@ -145,10 +161,11 @@
           <div class="story-description">
             Our second encounter deepened our connection, and we knew there was something special between us.
           </div>
+          <div class="read-more">Read Our Story →</div>
         </div>
-      </div>
+      </a>
 
-      <div class="story-card">
+      <a href="chapters/chapter3/index.html" class="story-card">
         <div class="heart-icon">❤️</div>
         <img src="images/gallery/Image3.JPG" alt="Third Meeting">
         <div class="story-content">
@@ -157,8 +174,9 @@
           <div class="story-description">
             The moment we realized we wanted to spend the rest of our lives together.
           </div>
+          <div class="read-more">Read Our Story →</div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </body>
