@@ -5,129 +5,213 @@
   <meta charset="UTF-8">
   <title>Our Love Story</title>
   <style>
+    :root {
+      --primary-color: #405DE6;
+      --secondary-color: #5851DB;
+      --accent-color: #833AB4;
+      --gradient-start: #405DE6;
+      --gradient-end: #FD1D1D;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #fafafa;
-      color: #333;
+      background: linear-gradient(135deg, #fafafa 0%, #e8e8e8 100%);
+      color: #262626;
+      min-height: 100vh;
     }
     
     .container {
-      max-width: 1200px;
+      max-width: 935px;
       margin: 0 auto;
-      padding: 2em;
+      padding: 1.5em;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 3em;
-      padding: 2em 0;
-      background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-      color: white;
-      border-radius: 15px;
+      margin-bottom: 2em;
+      padding: 1.5em 0;
+      background: white;
+      color: #262626;
+      border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .header:hover {
+      transform: translateY(-5px);
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2em;
       margin: 0;
-      padding: 0.5em;
+      padding: 0.3em;
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1s ease;
     }
 
     .subtitle {
-      font-size: 1.2em;
-      opacity: 0.9;
-      margin-top: 0.5em;
+      font-size: 1em;
+      color: #8e8e8e;
+      margin-top: 0.3em;
+      animation: slideUp 1s ease;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2em;
-      padding: 1em;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5em;
+      padding: 0.5em;
     }
 
     .story-card {
       position: relative;
-      border-radius: 15px;
+      border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
       background: white;
       text-decoration: none;
       color: inherit;
       display: block;
+      animation: fadeIn 0.5s ease;
     }
 
     .story-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-10px) scale(1.02);
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
 
     .story-card img {
       width: 100%;
-      height: 300px;
+      height: 280px;
       object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    /* Add specific styling for the first image */
-    .story-card:first-child img {
-      object-position: center top;
+      transition: transform 0.5s ease;
     }
 
     .story-card:hover img {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
     .story-content {
-      padding: 1.5em;
+      padding: 1.2em;
       background: white;
+      position: relative;
+      z-index: 1;
     }
 
     .story-date {
-      color: #ff6b6b;
-      font-weight: bold;
-      margin-bottom: 0.5em;
+      color: var(--primary-color);
+      font-size: 0.9em;
+      margin-bottom: 0.3em;
+      font-weight: 600;
     }
 
     .story-title {
-      font-size: 1.4em;
-      margin-bottom: 0.5em;
-      color: #333;
+      font-size: 1.1em;
+      margin-bottom: 0.3em;
+      color: #262626;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .story-card:hover .story-title {
+      color: var(--accent-color);
     }
 
     .story-description {
-      color: #666;
-      line-height: 1.6;
+      color: #8e8e8e;
+      line-height: 1.4;
+      font-size: 0.9em;
     }
 
     .heart-icon {
       position: absolute;
-      top: 1em;
-      right: 1em;
+      top: 0.8em;
+      right: 0.8em;
       color: white;
-      font-size: 1.5em;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      font-size: 1.2em;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: all 0.3s ease;
+      transform: scale(0.8);
+      z-index: 2;
     }
 
     .story-card:hover .heart-icon {
       opacity: 1;
+      transform: scale(1.2);
     }
 
     .read-more {
       display: inline-block;
-      margin-top: 1em;
-      color: #ff6b6b;
-      font-weight: bold;
-      transition: color 0.3s ease;
+      margin-top: 0.8em;
+      color: var(--primary-color);
+      font-weight: 600;
+      font-size: 0.9em;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .read-more::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: width 0.3s ease;
     }
 
     .story-card:hover .read-more {
-      color: #ff8e8e;
+      color: var(--accent-color);
+    }
+
+    .story-card:hover .read-more::after {
+      width: 100%;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1em;
+      }
+      
+      .gallery {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
