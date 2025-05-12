@@ -3,30 +3,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Our Journey</title>
+  <title>Our Love Story</title>
   <style>
-    body { font-family: sans-serif; margin: 2em; }
-    h1 { text-align: center; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      color: #333;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2em;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3em;
+      padding: 2em 0;
+      background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+      color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+      padding: 0.5em;
+    }
+
+    .subtitle {
+      font-size: 1.2em;
+      opacity: 0.9;
+      margin-top: 0.5em;
+    }
+
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2em;
+      padding: 1em;
     }
-    .gallery img {
+
+    .story-card {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+    }
+
+    .story-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .story-card img {
       width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    /* Add specific styling for the first image */
+    .story-card:first-child img {
+      object-position: center top;
+    }
+
+    .story-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .story-content {
+      padding: 1.5em;
+      background: white;
+    }
+
+    .story-date {
+      color: #ff6b6b;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+
+    .story-title {
+      font-size: 1.4em;
+      margin-bottom: 0.5em;
+      color: #333;
+    }
+
+    .story-description {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .heart-icon {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      color: white;
+      font-size: 1.5em;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .story-card:hover .heart-icon {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <h1>Our Journey</h1>
-  <div class="gallery">
-    <img src="images/gallery/Image1.jpg" alt="Photo 1">
-    <img src="images/gallery/Image2.jpg" alt="Photo 2">
-    <img src="images/gallery/Image3.JPG" alt="Photo 3">
-    <!-- Add more as needed -->
+  <div class="container">
+    <div class="header">
+      <h1>Our Love Story</h1>
+      <div class="subtitle">Three magical moments that changed our lives forever</div>
+    </div>
+    
+    <div class="gallery">
+      <div class="story-card">
+        <div class="heart-icon">❤️</div>
+        <img src="images/gallery/Image1.jpg" alt="First Meeting">
+        <div class="story-content">
+          <div class="story-date">First Meeting</div>
+          <div class="story-title">The Beginning</div>
+          <div class="story-description">
+            The first time our eyes met, little did we know this would be the start of our beautiful journey together.
+          </div>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="heart-icon">❤️</div>
+        <img src="images/gallery/Image2.jpg" alt="Second Meeting">
+        <div class="story-content">
+          <div class="story-date">Second Meeting</div>
+          <div class="story-title">Growing Connection</div>
+          <div class="story-description">
+            Our second encounter deepened our connection, and we knew there was something special between us.
+          </div>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="heart-icon">❤️</div>
+        <img src="images/gallery/Image3.JPG" alt="Third Meeting">
+        <div class="story-content">
+          <div class="story-date">Third Meeting</div>
+          <div class="story-title">Forever Together</div>
+          <div class="story-description">
+            The moment we realized we wanted to spend the rest of our lives together.
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
